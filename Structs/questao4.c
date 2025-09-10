@@ -12,6 +12,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 
 typedef struct Carro {
@@ -25,7 +26,20 @@ typedef struct Carro {
 
 int main() {
 
-    
+    Carro *carro = malloc(sizeof(Carro));
+
+    printf("Digite o modelo do carro: \n");
+    scanf(" %[^\n]", carro->modelo);
+    printf("Digite o ano do carro: \n");
+    scanf("%d", &carro->ano);
+    printf("Digite o preco do carro: \n");
+    scanf("%f", &carro->preco);
+
+    printf("O modelo do carro e: %s\n", carro->modelo);
+    printf("O ano do carro e: %d\n", carro->ano);
+    printf("O preco do carro e: %.2f\n", carro->preco);
+
+    free(carro);
     return 0;
 
 }

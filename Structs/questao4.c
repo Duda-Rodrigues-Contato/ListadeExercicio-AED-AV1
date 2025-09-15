@@ -25,7 +25,15 @@ typedef struct Carro {
 
 int main() {
 
-    
+    Carro *ptr = (Carro*)malloc(sizeof(Carro));
+
+    printf("Digite o modelo do carro: ");
+    scanf("%[^\n] ", ptr -> modelo);
+
+    printf("Digite o ano do carro: ");
+    scanf("%d", ptr -> ano);
+
+    free(ptr);
     return 0;
 
 }

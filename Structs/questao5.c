@@ -13,9 +13,42 @@
 
 #include <stdio.h>
 
+typedef struct Func {
+
+    char nome[50];
+    char cargo[30];
+    float salario;
+
+} Func;
+
 
 int main() {
 
+    int qntdFunc = 0;
+
+    printf("Digite a quantidade de funcionarios: ");
+    scanf("%d", &qntdFunc);
+
+    Func func[qntdFunc];
+
+    for (int i = 0; i < qntdFunc; i++) {
+
+        printf("Digite o nome do funcionario: ");
+        scanf(" %[^\n]", func[i].nome);
+        printf("Digite o cargo do funcionario: "); 
+        scanf(" %[^\n]", func[i].cargo);
+        printf("Digite o salario do funcionario: ");
+        scanf("%f", &func[i].salario);
+
+    }
+
+    for (int i = 0; i < qntdFunc; i++) {
+
+        printf("O nome do funcionario e: %s\n", func[i].nome);
+        printf("O cargo do funcionario e: %s\n", func[i].cargo);
+        printf("O salario do funcionario e: %.2f\n", func[i].salario);
+    
+    }
 
     return 0;
 

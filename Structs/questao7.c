@@ -1,0 +1,27 @@
+/*
+    QUESTÃO 7:
+
+    Crie uma agenda telefônica usando structs, onde cada contato possui:
+        • Nome (string de até 50 caracteres)
+        • Telefone (string de até 15 caracteres)
+    O programa deve permitir adicionar contatos e buscar um contato pelo nome.
+
+*/
+
+#include <stdio.h>
+
+
+typedef struct agenda {
+
+    char nome[50];
+    char telefone[15];
+
+} agenda;
+
+
+int main() {
+
+    
+    return 0;
+
+}

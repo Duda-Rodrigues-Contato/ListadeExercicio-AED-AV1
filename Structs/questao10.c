@@ -25,47 +25,40 @@ typedef struct ContaBancaria {
 } ContaBancaria;
 
 
-void depositar(float saldo) {
+void depositar(ContaBancaria *conta) {
 
     float valorDepoito;
 
     printf("Digite o valor a ser depositado: \n");
     scanf("%f", &valorDepoito);
 
-    saldo += valorDepoito;
+    conta->saldo += valorDepoito;
 
     printf("Deposito realizado com sucesso! \n");
-
-    return saldo;
 
 }
 
 
-void sacarValor(float saldo) {
+void sacarValor(ContaBancaria *conta) {
 
     float valorSacar;
-    float testeSaldo;
 
     printf("Digite o valor de saque: \n");
     scanf("%f", &valorSacar);
 
-    testeSaldo = saldo - valorSacar;
-
-    if (testeSaldo > 0) {
-        saldo = testeSaldo;
+    if (conta -> saldo >= valorSacar) {
+        conta -> saldo -= valorSacar;
         printf("Saldo realizado com sucesso!\n");
     } else {
         printf("Saldo insuficiente!\n");
     }
 
-    return saldo;
-
 }
 
 
-void exibirSaldo(float saldo) {
+void exibirSaldo(ContaBancaria conta) {
 
-    printf("Seu saldo atual e de: R$ %.2f", saldo);
+    printf("Seu saldo atual e de: R$ %.2f\n", conta.saldo);
 
 }
 
@@ -98,16 +91,16 @@ int main() {
         scanf("%d", &escolhaUsuario);
 
         if (escolhaUsuario == 1) {
-            depositar(conta.saldo);
+            depositar(&conta);
         } else if (escolhaUsuario == 2) {
-            sacarValor(conta.saldo);
+            sacarValor(&conta);
         } else if (escolhaUsuario == 3) {
-            exibirSaldo(conta.saldo);
+            exibirSaldo(conta);
         } else {
             printf("Escolha um valor valido!\n");
         }
 
-        printf("Você deseja realizar outra operacao? (s/n)\n");
+        printf("Voce deseja realizar outra operacao? (s/n)\n");
         scanf(" %c", &escolhaContinuar);
 
     }

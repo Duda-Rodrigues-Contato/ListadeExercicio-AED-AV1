@@ -11,17 +11,12 @@
 
 #include <stdio.h>
 
-int cont = 0;
+int contar_digitos(char c, int n) {
 
-
-int contar_digitos(int n) {
-
-    if (n == 0) {
-        cont++;
-        return cont;
+    if (c[n] == '\0') {
+        return 0;
     } else {
-        cont++;
-        return contar_digitos(n / 10);
+        return 1 + contar_digitos(c, n + 1);
     }
 
 } 
@@ -30,11 +25,16 @@ int contar_digitos(int n) {
 int main() {
 
     int num;
+    int qtd_carac = 0;
+    char stringcarac[10];
 
     printf("Digite o numero: ");
     scanf("%d", &num);
 
-    printf("O numero de digitos e: %d", contar_digitos(num));
+    sprintf(stringcarac, "%d", num);
+    qtd_carac = contar_digitos(stringcarac[10], 0);
+
+    printf("O numero de digitos e: %d", qtd_carac);
 
     return 0;
 

@@ -10,3 +10,32 @@
 */
 
 #include <stdio.h>
+
+int cont = 0;
+
+
+int contar_digitos(int n) {
+
+    if (n == 0) {
+        cont++;
+        return cont;
+    } else {
+        cont++;
+        return contar_digitos(n / 10);
+    }
+
+} 
+
+
+int main() {
+
+    int num;
+
+    printf("Digite o numero: ");
+    scanf("%d", &num);
+
+    printf("O numero de digitos e: %d", contar_digitos(num));
+
+    return 0;
+
+}

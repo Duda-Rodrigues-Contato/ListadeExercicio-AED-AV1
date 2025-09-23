@@ -1,5 +1,5 @@
 /*
-    QUESTÃO 1 - Número de Dígitos de um Inteiro:
+    QUESTÃO 1:
 
     Implemente uma função recursiva que recebe um número inteiro n e retorna a
     quantidade de dígitos que ele possui.
@@ -11,7 +11,8 @@
 
 #include <stdio.h>
 
-int contar_digitos(char c, int n) {
+
+int contar_digitos(char *c, int n) {
 
     if (c[n] == '\0') {
         return 0;
@@ -32,7 +33,7 @@ int main() {
     scanf("%d", &num);
 
     sprintf(stringcarac, "%d", num);
-    qtd_carac = contar_digitos(stringcarac[10], 0);
+    qtd_carac = contar_digitos(stringcarac, 0);
 
     printf("O numero de digitos e: %d", qtd_carac);
 

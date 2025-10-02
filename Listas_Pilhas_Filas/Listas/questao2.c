@@ -1,12 +1,8 @@
 /*
-    QUESTÃO 1 - Implementação de uma Lista Encadeada Simples:
+    QUESTÃO 2 - Contagem de Elementos na Lista:
 
-    Crie um programa que implemente uma lista encadeada simples com as
-    seguintes operações:
-        • Inserir um elemento no início. - OK
-        • Inserir um elemento no final. - OK
-        • Remover um elemento específico.
-        • Exibir todos os elementos da lista. - OK
+    Modifique o código do exercício 1 e implemente uma função para contar
+    quantos elementos existem na lista.
 
 */
 
@@ -115,6 +111,37 @@ No* removerElementoEspecifico(No* lista, int valor) {
 
 }
 
+/*void imprimirLista(No* lista) {
+
+    No* temp1 = lista;
+
+    while (temp1) {
+
+        printf("%d -> ", temp1 -> dado);
+        temp1 = temp1 -> prox;
+
+    }
+
+    printf("NULL \n");
+
+}*/
+// Quando elementos existem na lista:
+void qntdElementos(No* lista) {
+
+    No* tempCont = lista;
+    int cont = 0;
+
+    while (tempCont) {
+
+        cont++;
+        tempCont = tempCont -> prox;
+        
+    }
+
+    printf("A quantidade de elementos eh: %d\n", cont);
+
+}
+
 
 int main() {
 
@@ -130,10 +157,12 @@ int main() {
 
     printf("Antes da remocao: \n");
     imprimirLista(lista);
+    qntdElementos(lista);
 
     printf("Remover 35: \n");
     lista = removerElementoEspecifico(lista, 35);
     imprimirLista(lista);
+    qntdElementos(lista);
 
     return 0;
 
